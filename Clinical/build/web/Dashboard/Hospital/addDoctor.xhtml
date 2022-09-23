@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link href="img/logo/logo.png" rel="icon"/>
+        <title>Doctors</title>
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/ruang-admin.min.css" rel="stylesheet"/>
+    </h:head>
+    <h:body id="page-top">
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+
+                    <div class="sidebar-brand-text mx-3">Clinics &amp; Public Health Services MS</div>
+                </a>
+                <hr class="sidebar-divider my-0"/>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.xhtml">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+                       aria-controls="collapseForm">
+                        <i class="fa fa-hospital"></i>
+                        <span>Doctors</span>
+                    </a>
+                    <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+
+                            <a class="collapse-item" href="addDoctor.xhtml">Add</a>
+                            <a class="collapse-item" href="viewDoctors.xhtml">View</a>
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="viewPatients.xhtml">
+                        <i class="fa fa-users"></i>
+                        <span>Patients</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="viewAppointments.xhtml">
+                        <i class="fa fa-list"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                      <a class="nav-link" href="viewOperations.xhtml">
+                        <i class="fa fa-calendar"></i>
+                        <span>Operations</span>
+                    </a>
+                </li>
+                <hr class="sidebar-divider"/>
+
+            </ul>
+            <!-- Sidebar -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <!-- TopBar -->
+                    <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+                        <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <ul class="navbar-nav ml-auto">
+
+
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px"/>
+                                    <span class="ml-2 d-none d-lg-inline text-white small">#{hospitalModel.loadHospitals.name}</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="changePassword.xhtml">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Change Password
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Topbar -->
+
+                    <!-- Container Fluid-->
+                    <div class="container-fluid" id="container-wrapper">
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Doctors</h1>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="./">Home</a></li>
+                                <li class="breadcrumb-item">Doctors</li>
+                                <li class="breadcrumb-item active" aria-current="page">Doctors Page</li>
+                            </ol>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Form Basic -->
+                                <div class="card mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Doctors Page</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <h:form>
+                                            <p:messages/>
+                                            <div class="form-group">
+                                                <label>First Name</label>
+                                                <h:inputText class="form-control" value="#{hospitalModel.doctors.FName}" required="true" requiredMessage="First Name is Required!"  pt:placeholder="Enter First Name"/>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Last Name</label>
+                                                <h:inputText class="form-control" value="#{hospitalModel.doctors.LName}" required="true" requiredMessage="Last Name is Required!"  pt:placeholder="Enter Last Name"/>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <p:inputMask mask="+25099999999" style="box-shadow: 0 0" class="form-control" value="#{hospitalModel.doctors.phone}" required="true" requiredMessage="Phone Number is Required!" pt:placeholder="Enter Phone"/>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <h:inputText class="form-control" value="#{hospitalModel.doctors.email}" required="true" requiredMessage="Email is Required!"  pt:placeholder="Enter Email"/>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <h:selectOneMenu class="form-control" value="#{hospitalModel.doctors.gender}" required="true" requiredMessage="Gender is Required!"  pt:placeholder="Enter Gender">
+                                                    <f:selectItem itemLabel="--Please Select--" noSelectionOption=""/>
+                                                    <f:selectItem itemLabel="Male" itemValue="Male"/>
+                                                    <f:selectItem itemLabel="Female" itemValue="Female"/>
+                                                </h:selectOneMenu>
+
+                                            </div>
+                                            
+                                            <label>Username</label>	
+                                            <h:inputText class="form-control" value="#{hospitalModel.u.username}" pt:placeholder="Username" required="true" requiredMessage="Username is Required!"/>
+                                            <br/>
+                                            <label>Password</label>	
+                                            <h:inputSecret class="form-control" value="#{hospitalModel.u.password}" pt:placeholder="Password" required="true" requiredMessage="Password is Required!"/>
+                                            <br/>
+
+
+                                            <h:commandButton class="btn btn-primary" value="Submit" action="#{hospitalModel.createDoctor()}"/>
+                                        </h:form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- Modal Logout -->
+                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabelLogout">Sure!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to logout?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                                        <h:form>
+                                            <h:commandLink  action="#{userModel.logout()}" class="btn btn-primary" value="Logout"/>
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!---Container Fluid-->
+                </div>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>copyright &copy; <script> document.write(new Date().getFullYear());</script> - INEZA Divine
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Footer -->
+            </div>
+        </div>
+
+        <!-- Scroll to top -->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="js/ruang-admin.min.js"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Create Account</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- MATERIAL DESIGN ICONIC FONT -->
+        <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"/>
+
+        <!-- STYLE CSS -->
+        <link rel="stylesheet" href="css/style.css"/>
+    </h:head>
+    <h:body>
+        <div class="wrapper" >
+            <div class="inner">
+                <div class="image-holder">
+                    <img src="images/alexandr-podvalny-tE7_jvK-_YU-unsplash.jpg" style="width: 285px; height: 480px;" alt=""/>
+                </div>
+                <h:form>
+                    <p:messages/>
+                    <h3>Create Account</h3>
+                    <div class="form-row">
+                        <h:inputText class="form-control" pt:placeholder="First Name" required="true" value="#{adminModel.patients.FName}" requiredMessage="First Name is Required!"/>
+                        <h:inputText class="form-control" pt:placeholder="Last Name" required="true" value="#{adminModel.patients.LName}" requiredMessage="Last Name is Required!"/>
+                    </div>
+                    <div class="orm-holder">
+                        <p:inputMask mask="+250799999999" class="form-control" pt:placeholder="Phone" value="#{adminModel.patients.phone}" style="box-shadow: 0 0; width: 100% " required="true" requiredMessage="Phone is Required!"/>
+                       
+                    </div>
+                    
+                     <br/>
+                    <div class="form-holder">
+                        <h:selectOneMenu  class="form-control" style="width: 100%" required="true" value="#{adminModel.patients.gender}" requiredMessage="Gender is Required!">
+                            <f:selectItem itemLabel="--Please Select--" noSelectionOption="" />   
+                            <f:selectItem itemLabel="Male" itemValue="Male"/>
+                            <f:selectItem itemLabel="Female" itemValue="Female"/>
+                        </h:selectOneMenu>
+                        <i class="zmdi zmdi-chevron-down"></i>
+                    </div>
+                    <br/>
+                    <div class="form-holder">
+                        <h:selectOneMenu  class="form-control" style="width: 100%" required="true" value="#{adminModel.patients.martalStatus}" requiredMessage="Martial Status is Required!">
+                            <f:selectItem itemLabel="--Please Select--" noSelectionOption="" />   
+                            <f:selectItem itemLabel="Married" itemValue="Married" />
+                            <f:selectItem itemLabel="Widowed" itemValue="Widowed"/>
+                            <f:selectItem itemLabel="Separated" itemValue="Separated"/>
+                            <f:selectItem itemLabel="Divorced" itemValue="Divorced"/>
+                            <f:selectItem itemLabel="Single" itemValue="Single"/>
+                        </h:selectOneMenu>
+                        <i class="zmdi zmdi-chevron-down"></i>
+                    </div>
+                    <br/>
+                    <div class="form-holder">
+                        <p:inputMask mask="99/99/9999" class="form-control" pt:placeholder="Date of Birth" style="width: 100%; box-shadow: 0 0" value="#{adminModel.patients.doB}" required="true" requiredMessage="Date of Birth is Required!">
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </p:inputMask>
+                    </div>
+                    <br/>
+                    <div class="form-holder">
+                        <h:inputText class="form-control" pt:placeholder="Username" style="width: 100%" required="true" value="#{adminModel.u.username}" requiredMessage="Username is Required!"/>
+                    </div>
+                    <br/>
+                    <div class="form-holder">
+                        <h:inputSecret class="form-control" pt:placeholder="Password" style="width: 100%" required="true" value="#{adminModel.u.password}" requiredMessage="Password is Required!"/>
+                    </div>
+                    <br/>
+
+                    <p>Already have account? <span><a href="login.xhtml">Login</a></span></p>
+                    <br/>
+                    <h:commandButton value="Create Account" action="#{adminModel.createPatient()}" style="padding: 10px 20px; background-color: #1977CC; color: white; width: 100%; border-radius: 5px; border: 0px"/>
+                    <br/> <br/>
+                    <p><span><a href="../Landing/index.xhtml">Go to Homepage</a></span></p>
+
+                </h:form>
+
+            </div>
+        </div>
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </h:body>
+</html>
+

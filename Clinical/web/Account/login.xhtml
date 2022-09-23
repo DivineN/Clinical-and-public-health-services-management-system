@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- MATERIAL DESIGN ICONIC FONT -->
+        <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"/>
+
+        <!-- STYLE CSS -->
+        <link rel="stylesheet" href="css/style.css"/>
+    </h:head>
+    <h:body>
+        <div class="wrapper" >
+            <div class="inner">
+                <div class="image-holder">
+                    <img src="images/alexandr-podvalny-tE7_jvK-_YU-unsplash.jpg" style="width: 285px; height: 480px;" alt=""/>
+                </div>
+                <h:form >
+                    <p:messages/>
+                    <h3>Log in to your account</h3>
+
+                    <div class="form-holder" style="margin-bottom: 30px">
+                        <label >Username</label>
+                        <br/><br/>
+                        <h:inputText class="form-control" pt:placeholder="Name" style="width: 100%" value="#{userModel.username}" required="true" requiredMessage="Username is Required!"/>
+                    </div>
+                    <div class="form-holder">
+                        <label>Password</label>
+                        <br/><br/>
+                        <h:inputSecret class="form-control" pt:placeholder="Password" style="width: 100%" value="#{userModel.password}" required="true" requiredMessage="Password is Required!"/>
+                    </div>
+                    <br/>
+                    <p>Dont't have account? <span><a href="signup.xhtml">Create account</a></span></p>
+                    <br/>
+                    
+                    <h:commandButton value="Login" action="#{userModel.login()}" style="padding: 10px 20px; background-color: #1977CC; color: white; width: 100%; border-radius: 5px; border: 0px"/>
+                      <br/> <br/>
+                      <p><span><a href="../Landing/index.xhtml">Go to Homepage</a></span></p>
+                </h:form>
+
+            </div>
+        </div>
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </h:body>
+</html>
+

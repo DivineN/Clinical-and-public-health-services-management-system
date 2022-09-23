@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Dashboard</title>  <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link href="img/logo/logo.png" rel="icon"/>
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/ruang-admin.min.css" rel="stylesheet"/>
+    </h:head>
+    <h:body id="page-top">
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+
+                    <div class="sidebar-brand-text mx-3">Clinics &amp; Public Health Services MS</div>
+                </a>
+                <hr class="sidebar-divider my-0"/>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.xhtml">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+                       aria-controls="collapseForm">
+                        <i class="fa fa-hospital"></i>
+                        <span>Hospitals</span>
+                    </a>
+                    <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+
+                            <a class="collapse-item" href="addHospital.xhtml">Add</a>
+                            <a class="collapse-item" href="viewHospitals.xhtml">View</a>
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="viewDoctor.xhtml">
+                        <i class="fa fa-user-md"></i>
+                        <span>Doctors</span>
+                    </a>
+                </li>
+                
+                  <li class="nav-item">
+                      <a class="nav-link" href="viewPatients.xhtml">
+                        <i class="fa fa-users"></i>
+                        <span>Patients</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="viewAppointments.xhtml">
+                        <i class="fa fa-list"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                      <a class="nav-link" href="viewOperations.xhtml">
+                        <i class="fa fa-calendar"></i>
+                        <span>Operations</span>
+                    </a>
+                </li>
+                <hr class="sidebar-divider"/>
+
+            </ul>
+            <!-- Sidebar -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <!-- TopBar -->
+                    <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+                        <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <ul class="navbar-nav ml-auto">
+
+
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px"/>
+                                    <span class="ml-2 d-none d-lg-inline text-white small">Administrator</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Topbar -->
+
+                    <!-- Container Fluid-->
+                    <div class="container-fluid" id="container-wrapper">
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.xhtml">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            </ol>
+                        </div>
+
+                        <div class="row mb-3">
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <a href="viewHospitals.xhtml">
+                                    <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-uppercase mb-1">Hospitals</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">#{adminModel.hosList.size()}</div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                              
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-hospital fa-2x text-primary"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                            <!-- Earnings (Annual) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <a href="viewDoctor.xhtml">
+                                     <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-uppercase mb-1">Doctors</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">#{adminModel.docList.size()}</div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-user-md fa-2x text-success"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                            <!-- New User Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <a href="viewPatients.xhtml">
+                                     <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-uppercase mb-1">Patients</div>
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">#{adminModel.patList.size()}</div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-users fa-2x text-info"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                            <!-- Pending Requests Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <a href="viewAppointments.xhtml">
+                                    <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-uppercase mb-1">Appointments</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">#{adminModel.appList.size()}</div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-list fa-2x text-warning"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                           
+
+                            <!-- Area Chart -->
+                            
+                            <!-- Pie Chart -->
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Analytics</h6>
+                                       
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <div class="small text-gray-500">Hospital
+                                                <div class="small float-right"><b>#{adminModel.hosList.size()}</b></div>
+                                            </div>
+                                            <div class="progress" style="height: 12px;">
+                                                <div class="progress-bar bg-warning" role="progressbar" style="width: #{adminModel.hosList.size()}%" aria-valuenow="80"
+                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="small text-gray-500">Doctors
+                                                <div class="small float-right"><b>#{adminModel.docList.size()}</b></div>
+                                            </div>
+                                            <div class="progress" style="height: 12px;">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: #{adminModel.docList.size()}%" aria-valuenow="70"
+                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="small text-gray-500">Patients
+                                                <div class="small float-right"><b>#{adminModel.patList.size()}</b></div>
+                                            </div>
+                                            <div class="progress" style="height: 12px;">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: #{adminModel.patList.size()}%" aria-valuenow="50"
+                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="small text-gray-500">Appointments
+                                                <div class="small float-right"><b>#{adminModel.appList.size()}</b></div>
+                                            </div>
+                                            <div class="progress" style="height: 12px;">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: #{adminModel.appList.size()}%" aria-valuenow="55"
+                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="small text-gray-500">Operation
+                                                <div class="small float-right"><b>#{adminModel.opList.size()}</b></div>
+                                            </div>
+                                            <div class="progress" style="height: 12px;">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: #{adminModel.opList.size()}%" aria-valuenow="55"
+                                                     aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal Logout -->
+                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabelLogout">Sure!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to logout?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                                        <h:form>
+                                            <h:commandLink  action="#{userModel.logout()}" class="btn btn-primary" value="Logout"/>
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!---Container Fluid-->
+                </div>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>copyright &copy; <script> document.write(new Date().getFullYear());</script> - INEZA Divine
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Footer -->
+            </div>
+        </div>
+
+        <!-- Scroll to top -->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="js/ruang-admin.min.js"></script>
+        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="js/demo/chart-area-demo.js"></script>  
+    </h:body>
+</html>
+
